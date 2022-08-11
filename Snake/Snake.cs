@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Snake
 {
@@ -15,7 +11,7 @@ namespace Snake
             movement = new Movement();
         }
 
-        public void SnakeUpdate()
+        public void SnakeMove()
         {
             movement.Move();
         }

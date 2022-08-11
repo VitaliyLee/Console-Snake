@@ -9,7 +9,7 @@ namespace Snake
 {
     class Movement
     {
-        private int[] direction = new int[2];
+        private Vector2 direction;
         private int x, y;
 
         public Movement()
@@ -22,8 +22,8 @@ namespace Snake
             SetDirection();
             Console.Clear();
 
-            x += direction[0];
-            y += direction[1];
+            x += direction.x;
+            y += direction.y;
 
             Console.SetCursorPosition(x, y);
             Console.Write("O");
@@ -31,13 +31,13 @@ namespace Snake
 
         private void SetDirection()
         {
-            if (Input.GetButtonDown(ConsoleKey.RightArrow)) direction = new int[] { 1, 0 };
+            if (Input.GetButtonDown(ConsoleKey.RightArrow) || Input.GetButtonDown(ConsoleKey.D)) direction = Vector2.right;
 
-            if (Input.GetButtonDown(ConsoleKey.LeftArrow)) direction = new int[] { -1, 0 };
+            if (Input.GetButtonDown(ConsoleKey.LeftArrow) || Input.GetButtonDown(ConsoleKey.A)) direction = Vector2.left;
 
-            if (Input.GetButtonDown(ConsoleKey.DownArrow)) direction = new int[] { 0, 1 };
+            if (Input.GetButtonDown(ConsoleKey.DownArrow) || Input.GetButtonDown(ConsoleKey.S)) direction = -Vector2.down;
 
-            if (Input.GetButtonDown(ConsoleKey.UpArrow)) direction = new int[] { 0, -1 };
+            if (Input.GetButtonDown(ConsoleKey.UpArrow) || Input.GetButtonDown(ConsoleKey.W)) direction = -Vector2.up;
         }
 
         private void StartPosition()
