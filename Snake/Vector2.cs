@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Snake
 {
@@ -55,6 +51,13 @@ namespace Snake
         public static Vector2 operator *(int d, Vector2 a) { return new Vector2(a.x * d, a.y * d); }
         // Divides a vector by a number.
         public static Vector2 operator /(Vector2 a, int d) { return new Vector2(a.x / d, a.y / d); }
+        public static bool operator ==(Vector2 lhs, Vector2 rhs)
+        {
+            float diff_x = lhs.x - rhs.x;
+            float diff_y = lhs.y - rhs.y;
+            return diff_x == diff_y;
+        }
+        public static bool operator !=(Vector2 lhs, Vector2 rhs) { return !(lhs == rhs); }
 
         public Vector2(int x, int y) { this.x = x; this.y = y; }
 

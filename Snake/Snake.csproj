@@ -43,11 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Behaviour.cs" />
-    <Compile Include="ConcreteObservable.cs" />
+    <Compile Include="Food.cs" />
     <Compile Include="Input.cs" />
-    <Compile Include="IObservable.cs" />
-    <Compile Include="IObserver.cs" />
     <Compile Include="Movement.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
