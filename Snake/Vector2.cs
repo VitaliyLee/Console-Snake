@@ -55,7 +55,7 @@ namespace Snake
         {
             float diff_x = lhs.x - rhs.x;
             float diff_y = lhs.y - rhs.y;
-            return diff_x == diff_y;
+            return (diff_x == 0 && diff_y == 0);
         }
         public static bool operator !=(Vector2 lhs, Vector2 rhs) { return !(lhs == rhs); }
 

@@ -5,8 +5,9 @@ namespace Snake
 {
     class Movement
     {
+        public static Vector2 publicHeadPosition;
+
         private Vector2 direction;
-        private Vector2 currentPosition;
         private int x, y;
 
         public Vector2 Direction { get => direction; }
@@ -16,14 +17,13 @@ namespace Snake
             StartPosition();
         }
 
-        public Vector2 Move(string SnakeBody, List<Vector2> SnakeTailPos)
+        public Vector2 Move(string SnakeBody, int SnakeLength)
         {
+            publicHeadPosition = new Vector2(x, y);
             SetDirection();
 
             x += direction.x;
             y += direction.y;
-
-            currentPosition = new Vector2(x, y);
 
             BordDetection();
             
@@ -31,18 +31,7 @@ namespace Snake
             Console.Write(SnakeBody);
             //TailMove(SnakeBody, SnakeTailPos);
 
-            return currentPosition;
-        }
-
-        private void TailMove(string TailBody, List<Vector2> TalePos)
-        {
-            for (int i = 1; i < TalePos.Count; i++)
-            {
-                TalePos[i] += direction;
-
-                Console.SetCursorPosition(TalePos[i - 1].x, TalePos[i - 1].y);
-                Console.Write(TailBody);
-            }
+            return new Vector2(x, y);
         }
 
         private void SetDirection()
@@ -58,9 +47,8 @@ namespace Snake
 
         private void StartPosition()
         {
-            Random rnd = new Random();
-            x = rnd.Next(0, Console.WindowWidth);
-            y = rnd.Next(0, Console.WindowHeight);
+            x = Console.WindowWidth -10;
+            y = Console.WindowHeight / 2;
         }
 
         private void BordDetection()
